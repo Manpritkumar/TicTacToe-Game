@@ -5,7 +5,7 @@ let msg = document.querySelector("#msg");
 let msgContainer = document.querySelector(".msg-container");
 
 let turnX = true; // here will be two player X and O
-
+// created array in array for winning patterns in the game.
 const winningPatterns = [
   [0, 1, 2],
   [0, 3, 6],
@@ -18,7 +18,7 @@ const winningPatterns = [
 ];
 boxes.forEach(box => {
   box.addEventListener("click", () => {
-    console.log("box is clicking");
+    console.log("box is clicking"); // make the print to check in the console that is working or not on clicking.
     if (turnX) {
       //player -X turn
       box.innerText = "X";
@@ -32,11 +32,15 @@ boxes.forEach(box => {
     checkWinner();
   });
 });
+
+// Show winner function and remove the msg and disbale the boxes
 const showWinner = winnerVal => {
   msg.innerText = `Congratulation, Winner is ${winnerVal}`;
   msgContainer.classList.remove("hide");
   disableBoxes();
 };
+
+//funtion for reset the game
 const resetGame = () => {
   turnX = true;
   enableBoxes();
